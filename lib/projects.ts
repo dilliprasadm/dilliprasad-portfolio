@@ -63,9 +63,8 @@ export const projects: Project[] = [
     description:
       "A high-impact corporate website for a DPIIT-recognized IT consultancy and software engineering company in Jaipur. Highlights AI solutions, custom software engineering, and modern cloud architecture.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Lenis Scroll"],
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCd_v46isgU4pDlU28DcYBlaCnz436XXsBS7o2ql1ntHK4cns4mNYaPqq9Weh17cAfn4TOQwa5ZOHp0aZap9r3JmV_6KjGffz5tWM1tOuPxaIFI5O8tZgcOUGdFI8T7BDJ-A2PoJR0qpVGASeexRxY9Vt3SpUtuSZAbY6Q_VZk3UbLtfznvTaHuvbR6fZOXzKhYgbGpJc0HnryP0qr1t17BT1h5NMIkBHdy71QqJEpTShkvrSs2sr5uJg",
-    alt: "Modern software consultancy agency website showcasing AI services and custom development.",
+    image: "/images/projects/marumitra.png",
+    alt: "MARUMiTRA software consultancy agency website showcasing AI services and digital innovation.",
     displayUrl: "marumitra.com",
     live: "https://marumitra.com/",
     github: "https://github.com/dilliprasadm",
@@ -78,9 +77,8 @@ export const projects: Project[] = [
     description:
       "A comprehensive, structured reference guide for Git commands and industry best practices. Covers branching strategies, pull requests, advanced merge conflicts, and team collaboration workflows.",
     technologies: ["Git", "GitHub", "Markdown", "DevOps"],
-    image:
-      "https://images.unsplash.com/photo-1618401471353-b98aedd04e11?q=80&w=1200&auto=format&fit=crop",
-    alt: "Git version control and branching workflow documentation interface.",
+    image: "/images/projects/git-commands.png",
+    alt: "Git commands technical documentation and workflow reference guide.",
     displayUrl: "github.com/dilliprasadm/git-commands",
     live: "https://github.com/dilliprasadm/git-commands",
     github: "https://github.com/dilliprasadm/git-commands",
@@ -93,9 +91,8 @@ export const projects: Project[] = [
     description:
       "A secure, responsive personal finance tracking web application. Features Google Authentication, real-time balance calculations, recurring bill reminders, and person-wise debt settlement tracking.",
     technologies: ["React", "TypeScript", "Vite", "Firebase Auth", "Firestore"],
-    image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop",
-    alt: "Modern personal finance dashboard interface showing expense graphs and balance breakdown.",
+    image: "/images/projects/money-wise.png",
+    alt: "MoneyWise personal finance dashboard showing wallet balance, transactions, and dues.",
     displayUrl: "mymoney-cf6c2.web.app",
     live: "https://mymoney-cf6c2.web.app/",
     github: "https://github.com/dilliprasadm/money-wise",
@@ -136,8 +133,7 @@ export const projects: Project[] = [
     description:
       "A vibrant, festive e-commerce product landing page ('Parley Crackers') crafted for seasonal festive shopping, featuring visual product cards and responsive celebratory banners.",
     technologies: ["HTML5", "CSS3", "Responsive Design", "Flexbox"],
-    image:
-      "https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/projects/diwali-shopping.png",
     alt: "Diwali festive shopping landing page with cracker products and festival themes.",
     displayUrl: "dilliprasadm.github.io/Diwali-shopping-page",
     live: "https://dilliprasadm.github.io/Diwali-shopping-page/",
