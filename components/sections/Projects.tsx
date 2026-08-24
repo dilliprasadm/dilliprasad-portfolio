@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { projects } from "@/lib/projects";
 
@@ -52,7 +52,7 @@ export function Projects() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-display text-[20px] md:text-[24px] font-light text-on-surface-variant max-w-md leading-relaxed italic"
           >
-            A selection of web and mobile experiences I&apos;ve designed, engineered, and brought to life with precision.
+            A curated portfolio of web experiences, enterprise software, and open-source tooling engineered with precision.
           </motion.p>
         </div>
       </div>
@@ -109,8 +109,8 @@ export function Projects() {
                       ))}
                     </div>
 
-                    {/* Action Link */}
-                    <div>
+                    {/* Action Links */}
+                    <div className="flex flex-wrap items-center gap-6">
                       <a
                         href={project.live || "#"}
                         target="_blank"
@@ -118,10 +118,24 @@ export function Projects() {
                         className="inline-flex items-center gap-2 font-mono text-label-technical text-primary hover:text-accent-blue transition-colors group/btn py-1"
                       >
                         <span className="tracking-widest uppercase font-medium">
-                          VIEW PROJECT
+                          {project.id === "git-commands" ? "VIEW REPOSITORY" : "VIEW LIVE DEMO"}
                         </span>
                         <ArrowUpRight className="w-4 h-4 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
                       </a>
+
+                      {project.github && project.github !== project.live && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 font-mono text-label-technical text-on-surface-variant hover:text-primary transition-colors py-1"
+                        >
+                          <Github className="w-3.5 h-3.5" />
+                          <span className="tracking-widest uppercase font-medium">
+                            SOURCE CODE
+                          </span>
+                        </a>
+                      )}
                     </div>
                   </motion.div>
 
@@ -134,7 +148,12 @@ export function Projects() {
                     transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                     className="w-full lg:w-7/12 overflow-hidden rounded-xl bg-surface-container-lowest border border-white/[0.08] relative group/img shadow-[0_10px_40px_rgba(0,0,0,0.6)] cursor-pointer"
                   >
-                    <div className="relative w-full aspect-[16/10] sm:aspect-[4/3] overflow-hidden">
+                    <a
+                      href={project.live || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block relative w-full aspect-[16/10] sm:aspect-[4/3] overflow-hidden"
+                    >
                       <Image
                         src={project.image}
                         alt={project.alt}
@@ -143,7 +162,7 @@ export function Projects() {
                         className="object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 pointer-events-none" />
-                    </div>
+                    </a>
                   </motion.div>
                 </div>
               </div>
