@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #0a0a0a;
+    color: #e5e2e1;
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #ffffff;
+    color: #0a0a0a;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #262626;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6;
+  }
+}
+
+.glass-nav {
+  background: rgba(20, 19, 19, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card {
+  background: rgba(28, 27, 27, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.blueprint-grid {
+  background-image: linear-gradient(rgba(38, 38, 38, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(38, 38, 38, 0.4) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+}
+
+/* Floating Wave Animation for Tech Stack Cards */
+@keyframes waveFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-22px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.tech-wave-card {
+  animation: waveFloat 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.tech-wave-card-1 {
+  animation-delay: 0s;
+}
+
+.tech-wave-card-2 {
+  animation-delay: 1.5s;
+}
+
+.tech-wave-card-3 {
+  animation-delay: 3s;
+}
+
+.tech-wave-card-4 {
+  animation-delay: 4.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .tech-wave-card {
+    animation: none !important;
+  }
+}
