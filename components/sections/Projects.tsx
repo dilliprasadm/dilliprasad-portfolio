@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Github, ExternalLink, Globe } from "lucide-react";
 import { SectionLabel } from "@/components/shared/SectionLabel";
 import { projects } from "@/lib/projects";
 
@@ -52,7 +52,7 @@ export function Projects() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-display text-[20px] md:text-[24px] font-light text-on-surface-variant max-w-md leading-relaxed italic"
           >
-            A curated portfolio of web experiences, enterprise software, and open-source tooling engineered with precision.
+            A curated portfolio of web experiences, enterprise platforms, and open-source tooling engineered with precision.
           </motion.p>
         </div>
       </div>
@@ -81,19 +81,17 @@ export function Projects() {
                     transition={{ duration: 0.8 }}
                     className="w-full lg:w-5/12 flex flex-col"
                   >
-                    <div className="font-mono text-label-technical text-on-surface-variant mb-6 tracking-widest">
-                      {project.number}
+                    <div className="font-mono text-label-technical text-on-surface-variant mb-6 tracking-widest flex items-center gap-3">
+                      <span>{project.number}</span>
+                      <span className="w-8 h-[1px] bg-outline-variant/40" />
+                      <span className="text-[11px] text-accent-blue font-semibold uppercase">{project.category}</span>
                     </div>
 
-                    <h3 className="font-display text-[32px] sm:text-[40px] md:text-[44px] font-bold text-primary mb-2 tracking-tight">
+                    <h3 className="font-display text-[32px] sm:text-[40px] md:text-[44px] font-bold text-primary mb-4 tracking-tight">
                       {project.title}
                     </h3>
 
-                    <p className="font-mono text-label-technical text-accent-blue mb-6 uppercase tracking-widest font-medium">
-                      {project.category}
-                    </p>
-
-                    <p className="font-body text-base md:text-[18px] text-on-surface-variant mb-8 leading-relaxed">
+                    <p className="font-body text-base md:text-[17px] text-on-surface-variant mb-8 leading-relaxed">
                       {project.description}
                     </p>
 
@@ -139,29 +137,63 @@ export function Projects() {
                     </div>
                   </motion.div>
 
-                  {/* Project Media */}
+                  {/* High-Resolution Interactive Browser Mockup */}
                   <motion.div
                     data-cursor="project"
                     initial={{ opacity: 0, scale: 0.96 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full lg:w-7/12 overflow-hidden rounded-xl bg-surface-container-lowest border border-white/[0.08] relative group/img shadow-[0_10px_40px_rgba(0,0,0,0.6)] cursor-pointer"
+                    className="w-full lg:w-7/12 overflow-hidden rounded-xl bg-surface-container-lowest border border-white/[0.08] relative group/img shadow-[0_12px_45px_rgba(0,0,0,0.65)] hover:border-accent-blue/30 transition-colors duration-500 flex flex-col"
                   >
+                    {/* macOS Browser Header */}
+                    <div className="w-full bg-surface-container-high/60 border-b border-white/[0.06] px-4 py-2.5 flex items-center justify-between backdrop-blur-md">
+                      {/* Window Controls */}
+                      <div className="flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]/80" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]/80" />
+                      </div>
+
+                      {/* URL Bar */}
+                      <a
+                        href={project.live || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-1 rounded-full bg-surface-container-lowest/80 border border-white/[0.06] hover:border-accent-blue/40 transition-colors group/url max-w-[280px] sm:max-w-[340px] truncate"
+                      >
+                        <Globe className="w-3 h-3 text-on-surface-variant group-hover/url:text-accent-blue transition-colors flex-shrink-0" />
+                        <span className="font-mono text-[11px] text-on-surface-variant group-hover/url:text-primary transition-colors truncate">
+                          {project.displayUrl || "preview"}
+                        </span>
+                        <ExternalLink className="w-2.5 h-2.5 text-on-surface-variant/50 group-hover/url:text-accent-blue transition-colors ml-auto flex-shrink-0" />
+                      </a>
+
+                      {/* Live Indicator */}
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest hidden sm:inline">
+                          LIVE
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Screenshot Viewport */}
                     <a
                       href={project.live || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block relative w-full aspect-[16/10] sm:aspect-[4/3] overflow-hidden"
+                      className="block relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest"
                     >
                       <Image
                         src={project.image}
                         alt={project.alt}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 700px"
-                        className="object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 750px"
+                        priority={index < 2}
+                        className="object-cover object-top transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.03]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-40 pointer-events-none" />
                     </a>
                   </motion.div>
                 </div>
