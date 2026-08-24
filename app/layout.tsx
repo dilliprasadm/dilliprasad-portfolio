@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Dilli Prasad" }],
   creator: "Dilli Prasad",
-  metadataBase: new URL("https://dilliprasad.com"),
+  metadataBase: new URL("https://dilliprasad.vercel.app"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://dilliprasad.com",
+    url: "https://dilliprasad.vercel.app",
     title: "Dilli Prasad | Frontend Developer & UI Architect",
     description:
       "Frontend Developer focused on building modern, responsive, and high-performance digital experiences.",

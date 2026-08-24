@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "Dilli Prasad",
+  url: "https://dilliprasad.vercel.app",
   role: "Frontend Developer",
   titles: [
     "Frontend Developer",
