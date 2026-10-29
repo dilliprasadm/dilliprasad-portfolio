@@ -26,7 +26,7 @@ import {
 
 export function TechStack() {
   const [activeCategory, setActiveCategory] = useState<
-    "all" | "mobile" | "frontend" | "backend" | "motion" | "devops"
+    "all" | "web" | "mobile" | "backend" | "motion" | "devops"
   >("all");
   const [selectedSkill, setSelectedSkill] = useState<Skill>(skillsData[0]);
 
@@ -36,10 +36,10 @@ export function TechStack() {
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
+      case "web":
+        return <Globe className="w-3.5 h-3.5" />;
       case "mobile":
         return <Smartphone className="w-3.5 h-3.5" />;
-      case "frontend":
-        return <Globe className="w-3.5 h-3.5" />;
       case "backend":
         return <Database className="w-3.5 h-3.5" />;
       case "motion":

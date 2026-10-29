@@ -1,7 +1,7 @@
 export interface Skill {
   id: string;
   name: string;
-  category: "mobile" | "frontend" | "backend" | "motion" | "devops";
+  category: "web" | "mobile" | "backend" | "motion" | "devops";
   categoryLabel: string;
   level: "Production Core" | "Architecture" | "Advanced";
   experience: string;
@@ -11,13 +11,115 @@ export interface Skill {
 }
 
 export interface SkillCategoryInfo {
-  id: "all" | "mobile" | "frontend" | "backend" | "motion" | "devops";
+  id: "all" | "web" | "mobile" | "backend" | "motion" | "devops";
   label: string;
   count: number;
 }
 
 export const skillsData: Skill[] = [
-  // --- Mobile & Flutter ---
+  // ==========================================
+  // 1. CORE WEB & PROGRAMMING SKILLS (FIRST)
+  // ==========================================
+  {
+    id: "react",
+    name: "React (v18 / v19)",
+    category: "web",
+    categoryLabel: "Web & Frontend",
+    level: "Production Core",
+    experience: "Component Architecture",
+    description:
+      "Architecting component-driven user interfaces with concurrent rendering, custom hooks, context state management, and strict performance profiling.",
+    highlight: "Custom hooks, Context API, Suspense, Performance Memoization",
+    projects: ["MoneyWise", "NPK Business Solutions", "Portfolio", "3D Portfolio"],
+  },
+  {
+    id: "javascript",
+    name: "JavaScript (ESNext)",
+    category: "web",
+    categoryLabel: "Web & Frontend",
+    level: "Production Core",
+    experience: "Core Fundamentals & Runtime",
+    description:
+      "Deep mastery of JavaScript runtime internals, asynchronous event loops, closures, prototype inheritance, DOM manipulation, and modern ES6+ paradigms.",
+    highlight: "Event loop, Promises, Async/Await, Canvas API, DOM APIs",
+    projects: ["Temperature Converter", "Basic Form", "Diwali Page", "MoneyWise"],
+  },
+  {
+    id: "typescript",
+    name: "TypeScript",
+    category: "web",
+    categoryLabel: "Web & Frontend",
+    level: "Production Core",
+    experience: "Static Typing & Architecture",
+    description:
+      "Writing strict, type-safe enterprise codebases with generics, discriminated unions, utility types, and strongly typed API contracts preventing runtime defects.",
+    highlight: "Generics, Discriminated Unions, Strict Null Checks, Type Inference",
+    projects: ["HSM Grand Inn", "Manish Jewellers", "MoneyWise", "Portfolio Platform"],
+  },
+  {
+    id: "python",
+    name: "Python",
+    category: "web",
+    categoryLabel: "Web & Frontend",
+    level: "Advanced",
+    experience: "Backend Scripting & Algorithms",
+    description:
+      "Proficient in Python for backend data scripting, algorithmic problem solving, RESTful service integration, and automated workflow scripts.",
+    highlight: "Object-oriented scripting, data processing, backend automation",
+    projects: ["System Design Practise", "Algorithm Tooling"],
+  },
+  {
+    id: "sql",
+    name: "SQL & Databases",
+    category: "web",
+    categoryLabel: "Web & Frontend",
+    level: "Architecture",
+    experience: "Relational Queries & Schemas",
+    description:
+      "Relational database design, writing complex SQL queries, joins, indexes, transactions, schema migrations, and Row-Level Security (RLS) enforcement.",
+    highlight: "PostgreSQL, SQLite, Table Normalization, Indexing, Joins & RLS",
+    projects: ["Marble Centre", "Qelvani Jewellers", "Pranavic Clinic"],
+  },
+  {
+    id: "nextjs",
+    name: "Next.js (App Router)",
+    category: "web",
+    categoryLabel: "Web & Frontend",
+    level: "Architecture",
+    experience: "SSR & Static Platforms",
+    description:
+      "Enterprise full-stack Next.js architecture utilizing React Server Components (RSC), dynamic server routing, Route Handlers, ISR, and automated SEO metadata engines.",
+    highlight: "React Server Components, SEO optimization, ISR caching, Edge routes",
+    projects: ["HSM Grand Inn", "Manish Jewellers", "MARUMiTRA", "NPK Solutions"],
+  },
+  {
+    id: "html-css",
+    name: "HTML5 & Semantic Web",
+    category: "web",
+    categoryLabel: "Web & Frontend",
+    level: "Production Core",
+    experience: "Accessibility & Standards",
+    description:
+      "Crafting clean, accessible, semantic HTML5 structures adhering to WCAG standards, SEO crawlability, and modern responsive viewports.",
+    highlight: "Semantic tags, ARIA roles, SEO meta tags, OpenGraph",
+    projects: ["All Web Platforms"],
+  },
+  {
+    id: "tailwind-css",
+    name: "Tailwind CSS (v3 / v4)",
+    category: "web",
+    categoryLabel: "Web & Frontend",
+    level: "Production Core",
+    experience: "Design Systems & UI",
+    description:
+      "Engineering bespoke editorial design systems, dark-mode glassmorphic aesthetics, responsive fluid typography clamp sizing, and micro-interactions.",
+    highlight: "Custom design tokens, fluid clamp sizing, dark noir themes",
+    projects: ["HSM Grand Inn", "Manish Jewellers", "MARUMiTRA", "Portfolio"],
+  },
+
+  // ==========================================
+  // 2. MOBILE & CROSS-PLATFORM (FLUTTER)
+  // ==========================================
   {
     id: "flutter",
     name: "Flutter",
@@ -38,7 +140,7 @@ export const skillsData: Skill[] = [
     level: "Production Core",
     experience: "Language & Concurrency",
     description:
-      "Deep understanding of Dart OOP, streams, isolates for heavy background tasks, null-safety, and asynchronous event loops.",
+      "Deep understanding of Dart OOP, streams, isolates for heavy background tasks, sound null-safety, and asynchronous event loops.",
     highlight: "Streams, Isolates, Asynchronous architecture",
     projects: ["Qelvani Jewellers", "Marble Centre", "Pranavic Clinic", "Lumino Kids"],
   },
@@ -91,86 +193,14 @@ export const skillsData: Skill[] = [
     projects: ["Marble Centre", "Pranavic Clinic"],
   },
 
-  // --- Frontend & Modern Web ---
-  {
-    id: "react",
-    name: "React (v18 / v19)",
-    category: "frontend",
-    categoryLabel: "Modern Frontend",
-    level: "Production Core",
-    experience: "Component Architecture",
-    description:
-      "Building scalable, reusable component hierarchies with advanced custom hooks, concurrent rendering, and strict performance profiling.",
-    highlight: "Custom hooks, Context API, Memoization, Suspense",
-    projects: ["MoneyWise", "NPK Business Solutions", "Portfolio"],
-  },
-  {
-    id: "nextjs",
-    name: "Next.js (App Router)",
-    category: "frontend",
-    categoryLabel: "Modern Frontend",
-    level: "Architecture",
-    experience: "SSR & Static Platforms",
-    description:
-      "Enterprise Next.js architecture utilizing Server Components (RSC), dynamic routing, Route Handlers, SEO metadata engines, and ISR.",
-    highlight: "React Server Components, SEO optimization, ISR caching",
-    projects: ["HSM Grand Inn", "Manish Jewellers", "MARUMiTRA", "NPK Solutions"],
-  },
-  {
-    id: "typescript",
-    name: "TypeScript",
-    category: "frontend",
-    categoryLabel: "Modern Frontend",
-    level: "Production Core",
-    experience: "Type Systems & Safety",
-    description:
-      "Strict static typing, complex generic interfaces, union discriminators, and type-safe API contracts preventing runtime defects.",
-    highlight: "Generics, Discriminated unions, API type inference",
-    projects: ["HSM Grand Inn", "Manish Jewellers", "MoneyWise", "Portfolio"],
-  },
-  {
-    id: "javascript-es6",
-    name: "Modern JavaScript (ESNext)",
-    category: "frontend",
-    categoryLabel: "Modern Frontend",
-    level: "Production Core",
-    experience: "Core Fundamentals",
-    description:
-      "Deep mastery of JavaScript runtime internals, closures, prototype chaining, asynchronous event loops, and DOM manipulation APIs.",
-    highlight: "Event loop, Promises, Async/Await, Canvas API",
-    projects: ["Temperature Converter", "Basic Form", "Diwali Page"],
-  },
-  {
-    id: "tailwind-css",
-    name: "Tailwind CSS (v3 / v4)",
-    category: "frontend",
-    categoryLabel: "Modern Frontend",
-    level: "Production Core",
-    experience: "Design Systems & UI",
-    description:
-      "Crafting bespoke editorial design systems, micro-interactions, responsive fluid typography, and dark-mode glassmorphic themes.",
-    highlight: "Custom design tokens, fluid clamp sizing, dark noir themes",
-    projects: ["All Web Platforms & Mobile UI"],
-  },
-  {
-    id: "responsive-design",
-    name: "Responsive & Accessibility",
-    category: "frontend",
-    categoryLabel: "Modern Frontend",
-    level: "Production Core",
-    experience: "Cross-Device UX",
-    description:
-      "Designing seamlessly across ultra-wide monitors, tablets, and handheld devices with semantic HTML5 and accessible WCAG standards.",
-    highlight: "Mobile-first layouts, ARIA accessibility, touch ergonomics",
-    projects: ["HSM Grand Inn", "Manish Jewellers", "MARUMiTRA"],
-  },
-
-  // --- Backend, Cloud & Databases ---
+  // ==========================================
+  // 3. BACKEND, CLOUD & REAL-TIME
+  // ==========================================
   {
     id: "supabase",
-    name: "Supabase & PostgreSQL",
+    name: "Supabase & BaaS",
     category: "backend",
-    categoryLabel: "Cloud & Database",
+    categoryLabel: "Cloud & Backend",
     level: "Architecture",
     experience: "BaaS & Relational DB",
     description:
@@ -182,7 +212,7 @@ export const skillsData: Skill[] = [
     id: "firebase",
     name: "Firebase Ecosystem",
     category: "backend",
-    categoryLabel: "Cloud & Database",
+    categoryLabel: "Cloud & Backend",
     level: "Production Core",
     experience: "Auth & Cloud Firestore",
     description:
@@ -194,7 +224,7 @@ export const skillsData: Skill[] = [
     id: "rest-apis",
     name: "RESTful APIs & Webhooks",
     category: "backend",
-    categoryLabel: "Cloud & Database",
+    categoryLabel: "Cloud & Backend",
     level: "Production Core",
     experience: "Data Integration",
     description:
@@ -204,9 +234,9 @@ export const skillsData: Skill[] = [
   },
   {
     id: "pdf-thermal-printing",
-    name: "PDF & Thermal Hardware Printing",
+    name: "PDF & Thermal Printing",
     category: "backend",
-    categoryLabel: "Cloud & Database",
+    categoryLabel: "Cloud & Backend",
     level: "Advanced",
     experience: "Document Generation",
     description:
@@ -215,7 +245,9 @@ export const skillsData: Skill[] = [
     projects: ["Marble Centre"],
   },
 
-  // --- Motion, Interactive Graphics & UI Craft ---
+  // ==========================================
+  // 4. MOTION, GRAPHICS & UI CRAFT
+  // ==========================================
   {
     id: "framer-motion",
     name: "Framer Motion",
@@ -226,7 +258,7 @@ export const skillsData: Skill[] = [
     description:
       "Crafting high-end cinematic scroll reveals, layout morphing animations, staggered entrance choreography, and physics-based interactions.",
     highlight: "Layout animations, scroll-linked parallax, exit transitions",
-    projects: ["Portfolio", "HSM Grand Inn", "MARUMiTRA"],
+    projects: ["Portfolio Platform", "HSM Grand Inn", "MARUMiTRA"],
   },
   {
     id: "webgl-shaders",
@@ -242,7 +274,7 @@ export const skillsData: Skill[] = [
   },
   {
     id: "canvas-particles",
-    name: "HTML5 Canvas Particle Systems",
+    name: "HTML5 Canvas Particles",
     category: "motion",
     categoryLabel: "Motion & UI Craft",
     level: "Advanced",
@@ -254,7 +286,7 @@ export const skillsData: Skill[] = [
   },
   {
     id: "lenis-smooth-scroll",
-    name: "Lenis & Editorial UI Craft",
+    name: "Lenis & Smooth Scrolling",
     category: "motion",
     categoryLabel: "Motion & UI Craft",
     level: "Production Core",
@@ -265,7 +297,9 @@ export const skillsData: Skill[] = [
     projects: ["MARUMiTRA", "HSM Grand Inn"],
   },
 
-  // --- DevOps & System Design ---
+  // ==========================================
+  // 5. DEVOPS, SYSTEM DESIGN & CLOUD
+  // ==========================================
   {
     id: "git-github",
     name: "Git & Advanced Workflows",
@@ -292,7 +326,7 @@ export const skillsData: Skill[] = [
   },
   {
     id: "performance-optimization",
-    name: "Lighthouse & Core Web Vitals",
+    name: "Lighthouse & Web Vitals",
     category: "devops",
     categoryLabel: "DevOps & Architecture",
     level: "Architecture",
@@ -304,7 +338,7 @@ export const skillsData: Skill[] = [
   },
   {
     id: "system-design",
-    name: "System Design & App Architecture",
+    name: "System Design & Architecture",
     category: "devops",
     categoryLabel: "DevOps & Architecture",
     level: "Advanced",
@@ -318,9 +352,9 @@ export const skillsData: Skill[] = [
 
 export const skillCategoriesList: SkillCategoryInfo[] = [
   { id: "all", label: "All Skills", count: skillsData.length },
+  { id: "web", label: "Web & Core (React, JS, Python, SQL)", count: skillsData.filter((s) => s.category === "web").length },
   { id: "mobile", label: "Mobile & Flutter", count: skillsData.filter((s) => s.category === "mobile").length },
-  { id: "frontend", label: "Frontend & React", count: skillsData.filter((s) => s.category === "frontend").length },
-  { id: "backend", label: "Backend & Cloud", count: skillsData.filter((s) => s.category === "backend").length },
+  { id: "backend", label: "Cloud & Backend", count: skillsData.filter((s) => s.category === "backend").length },
   { id: "motion", label: "Motion & UI Craft", count: skillsData.filter((s) => s.category === "motion").length },
   { id: "devops", label: "DevOps & Architecture", count: skillsData.filter((s) => s.category === "devops").length },
 ];
@@ -329,7 +363,7 @@ export const engineeringHighlights = [
   {
     metric: "100%",
     label: "Cross-Platform Delivery",
-    detail: "Production apps shipped across Android, iOS & Web with native performance.",
+    detail: "Production apps shipped across Web (React/Next.js) & Mobile (Flutter/Android/iOS).",
   },
   {
     metric: "0-Lag",
@@ -338,12 +372,12 @@ export const engineeringHighlights = [
   },
   {
     metric: "Offline-1st",
-    label: "Resilient Architecture",
-    detail: "Local SQLite caching & seamless cloud synchronization via Supabase.",
+    label: "Relational SQL & Cloud",
+    detail: "PostgreSQL, SQLite caching & seamless cloud synchronization via Supabase.",
   },
   {
     metric: "95+",
     label: "Lighthouse Performance",
-    detail: "Engineered for optimal Core Web Vitals, speed, and clean semantic code.",
+    detail: "Engineered for optimal Core Web Vitals, speed, and clean semantic architecture.",
   },
 ];
