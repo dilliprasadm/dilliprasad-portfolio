@@ -66,7 +66,7 @@ export function TechStack() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7 }}
             >
-              <SectionLabel number="04" label="TECH STACK" />
+              <SectionLabel number="03" label="TECH STACK" />
             </motion.div>
 
             <motion.h2

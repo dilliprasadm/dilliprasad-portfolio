@@ -94,7 +94,7 @@ export function Contact() {
           transition={{ duration: 0.7 }}
           className="mb-12"
         >
-          <SectionLabel number="05" label="LET'S CONNECT" />
+          <SectionLabel number="04" label="LET'S CONNECT" />
         </motion.div>
 
         {/* Massive Headline with Outline Glow Effect */}

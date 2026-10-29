@@ -15,7 +15,7 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sectionIds = ["home", "about", "projects", "experience", "tech-stack", "contact"];
+      const sectionIds = ["home", "about", "projects", "tech-stack", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (let i = sectionIds.length - 1; i >= 0; i--) {
