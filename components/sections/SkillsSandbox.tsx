@@ -775,7 +775,7 @@ export function SkillsSandbox({
 
         {/* Live Holographic Telemetry Inspector Card (Collapsible) */}
         {selectedSkill && isHudOpen && (
-          <div className="absolute bottom-4 right-4 max-w-[340px] sm:max-w-[380px] w-full p-5 rounded-xl bg-[#12141a]/95 border border-cyan-500/30 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.9)] z-30 animate-in fade-in slide-in-from-bottom-2 duration-300">
+          <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 left-3 sm:left-auto max-w-none sm:max-w-[380px] p-4 sm:p-5 rounded-xl bg-[#12141a]/95 border border-cyan-500/30 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.9)] z-30 animate-in fade-in slide-in-from-bottom-2 duration-300">
             {/* Ambient Brand Aura in HUD */}
             <div
               className="absolute -top-10 -right-10 w-28 h-28 rounded-full blur-[45px] opacity-25 pointer-events-none"
