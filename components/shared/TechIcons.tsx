@@ -43,15 +43,13 @@ export function PythonIcon({ className = "w-6 h-6" }: { className?: string }) {
       <path
         d="M11.87 2c-5.18 0-4.86 2.25-4.86 2.25l.01 2.33h4.94v.7H4.96S2 6.94 2 12.15c0 5.2 2.58 5.01 2.58 5.01h1.54v-2.16s-.08-2.58 2.53-2.58h4.9v-.74H8.62s-.99-.08-.99-.95V8.1s-.11-1.12 1.12-1.12h7.33s.96-.03.96.96v3.13h-4.43c-2.3 0-2.28 2.18-2.28 2.18l-.01 2.45h4.94v.7H8.28S5.33 16.07 5.33 21.28c0 5.2 2.57 5.01 2.57 5.01h1.54"
         fill="url(#python-gradient-1)"
-        transform="scale(0.85) translate(2, 2)"
       />
       <path
         d="M12.13 22c5.18 0 4.86-2.25 4.86-2.25l-.01-2.33h-4.94v-.7h7.02s2.96.34 2.96-4.87c0-5.2-2.58-5.01-2.58-5.01h-1.54v2.16s.08 2.58-2.53 2.58h-4.9v.74h4.93s.99.08.99.95v4.63s.11 1.12-1.12 1.12H7.94s-.96.03-.96-.96v-3.13h4.43c2.3 0 2.28-2.18 2.28-2.18l.01-2.45h-4.94v-.7h7.02s2.95.34 2.95-4.87c0-5.2-2.57-5.01-2.57-5.01h-1.54"
         fill="url(#python-gradient-2)"
-        transform="scale(0.85) translate(2, 2)"
       />
-      <circle cx="9" cy="5.5" r="1" fill="#FFFFFF" />
-      <circle cx="15" cy="18.5" r="1" fill="#FFFFFF" />
+      <circle cx="8" cy="4.5" r="1.1" fill="#FFFFFF" />
+      <circle cx="16" cy="19.5" r="1.1" fill="#FFFFFF" />
       <defs>
         <linearGradient id="python-gradient-1" x1="2" y1="2" x2="16" y2="16" gradientUnits="userSpaceOnUse">
           <stop stopColor="#387EB8" />
@@ -221,6 +219,63 @@ export function CodeChipIcon({ className = "w-6 h-6" }: { className?: string }) 
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="3" y="3" width="18" height="18" rx="3" stroke="#3B82F6" strokeWidth="1.8" />
       <path d="M8 10l-2 2 2 2M16 10l2 2-2 2M13 8l-2 8" stroke="#3B82F6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function NodeIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2l9 5.2v10.4L12 22.8 3 17.6V7.2L12 2z" fill="#339933" />
+      <path d="M12 4.5l-6.8 3.9v7.8l6.8 3.9 6.8-3.9V8.4L12 4.5z" fill="#026E00" />
+      <path d="M11 8h2v8h-2z" fill="#FFFFFF" />
+    </svg>
+  );
+}
+
+export function PostgresIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16.93V18c0-.55-.45-1-1-1s-1 .45-1 1v.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v.93zm5.79-4.72c-.15.35-.35.68-.58.98l-2.21-2.21V10c0-.55-.45-1-1-1h-1V7h1c.55 0 1-.45 1-1V5.07c3.95.49 7 3.85 7 7.93 0 .41-.04.81-.11 1.21z" fill="#336791" />
+    </svg>
+  );
+}
+
+export function ThreejsIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 20.5L12 3.5l10 17H2z" stroke="#FFFFFF" strokeWidth="1.8" fill="none" />
+      <path d="M12 3.5v17M2 20.5l15-8.5M22 20.5L7 12" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.7" />
+    </svg>
+  );
+}
+
+export function SqliteIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="12" cy="6" rx="9" ry="3" fill="#003B57" />
+      <path d="M3 6v12c0 1.66 4.03 3 9 3s9-1.34 9-3V6" stroke="#003B57" strokeWidth="1.8" fill="none" />
+      <path d="M3 10c0 1.66 4.03 3 9 3s9-1.34 9-3" stroke="#00A9E0" strokeWidth="1.8" fill="none" />
+      <path d="M3 14c0 1.66 4.03 3 9 3s9-1.34 9-3" stroke="#00A9E0" strokeWidth="1.8" fill="none" />
+    </svg>
+  );
+}
+
+export function VscodeIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.5 2.5L7.5 10.5 3 7 1.5 8.5 5 12l-3.5 3.5L3 17l4.5-3.5 10 8 4.5-2V4.5l-4.5-2zm0 4.5v10L10 12l7.5-5z" fill="#007ACC" />
+    </svg>
+  );
+}
+
+export function RestApiIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="6" cy="12" r="3" stroke="#38BDF8" strokeWidth="1.8" />
+      <circle cx="18" cy="6" r="3" stroke="#818CF8" strokeWidth="1.8" />
+      <circle cx="18" cy="18" r="3" stroke="#34D399" strokeWidth="1.8" />
+      <path d="M9 12h3m0 0l3-4m-3 4l3 4" stroke="#94A3B8" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   );
 }

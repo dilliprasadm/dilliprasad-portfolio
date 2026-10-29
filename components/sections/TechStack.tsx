@@ -9,6 +9,7 @@ import {
   engineeringHighlights,
   Skill,
 } from "@/lib/skills";
+import { SkillsSandbox } from "@/components/sections/SkillsSandbox";
 import {
   ReactIcon,
   JavaScriptIcon,
@@ -26,29 +27,34 @@ import {
   FramerMotionIcon,
   WebglIcon,
   VercelIcon,
+  NodeIcon,
+  PostgresIcon,
+  ThreejsIcon,
+  SqliteIcon,
+  VscodeIcon,
+  RestApiIcon,
   CodeChipIcon,
 } from "@/components/shared/TechIcons";
 import {
-  Smartphone,
-  Globe,
-  Database,
-  Sparkles,
-  GitBranch,
   Layers,
+  Sparkles,
   ArrowUpRight,
   Flame,
   Printer,
   MousePointer2,
   Gauge,
   Workflow,
-  Cpu,
+  Compass,
+  Grid3X3,
+  CheckCircle2,
 } from "lucide-react";
 
 export function TechStack() {
   const [activeCategory, setActiveCategory] = useState<
     "all" | "web" | "mobile" | "backend" | "motion" | "devops"
   >("all");
-  const [hoveredSkillId, setHoveredSkillId] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<"physics" | "matrix">("physics");
+  const [inspectedSkill, setInspectedSkill] = useState<Skill | null>(null);
 
   const filteredSkills = skillsData.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
@@ -88,6 +94,18 @@ export function TechStack() {
         return <WebglIcon className={className} />;
       case "vercel":
         return <VercelIcon className={className} />;
+      case "node":
+        return <NodeIcon className={className} />;
+      case "postgres":
+        return <PostgresIcon className={className} />;
+      case "threejs":
+        return <ThreejsIcon className={className} />;
+      case "sqlite":
+        return <SqliteIcon className={className} />;
+      case "vscode":
+        return <VscodeIcon className={className} />;
+      case "api":
+        return <RestApiIcon className={className} />;
       case "flame":
         return <Flame className={`${className} text-[#FF5722]`} />;
       case "printer":
@@ -98,6 +116,8 @@ export function TechStack() {
         return <Gauge className={`${className} text-[#10B981]`} />;
       case "architecture":
         return <Workflow className={`${className} text-[#6366F1]`} />;
+      case "sparkles":
+        return <Sparkles className={`${className} text-[#38BDF8]`} />;
       default:
         return <CodeChipIcon className={className} />;
     }
@@ -145,7 +165,7 @@ export function TechStack() {
 
       <div className="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop w-full relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 relative">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 relative">
           <div className="space-y-4 max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -173,27 +193,46 @@ export function TechStack() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-display text-[20px] md:text-[24px] font-light text-on-surface-variant max-w-2xl italic leading-relaxed"
             >
-              Mastery across modern web engineering (React, TypeScript, Python, SQL), native cross-platform mobile apps (Flutter, Dart), and real-time cloud backends.
+              Web & Core programming mastery (React, JavaScript, TypeScript, Python, SQL) combined with native cross-platform mobile apps (Flutter, Dart) and real-time cloud backends.
             </motion.p>
           </div>
 
-          {/* Live Indicator Pill */}
+          {/* Dual-Mode View Switcher (Physics Lab vs Clean Matrix Dock) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-8 md:mt-0 flex items-center gap-3 px-6 py-3 rounded-full bg-[#141414]/90 border border-white/[0.08] backdrop-blur-md shadow-lg"
+            className="mt-8 md:mt-0 flex items-center p-1.5 rounded-xl bg-[#14161d] border border-white/[0.08] backdrop-blur-md shadow-2xl"
           >
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#10B981] animate-pulse" />
-            <span className="font-mono text-[11px] text-on-surface-variant tracking-wider uppercase font-medium">
-              PRODUCTION SHIPPED · 2026
-            </span>
+            <button
+              onClick={() => setViewMode("physics")}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-lg font-mono text-[12px] uppercase tracking-wider font-semibold transition-all ${
+                viewMode === "physics"
+                  ? "bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                  : "text-on-surface-variant hover:text-primary"
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5" />
+              <span>Zero-G Physics Lab</span>
+            </button>
+
+            <button
+              onClick={() => setViewMode("matrix")}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-lg font-mono text-[12px] uppercase tracking-wider font-semibold transition-all ${
+                viewMode === "matrix"
+                  ? "bg-primary text-on-primary shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                  : "text-on-surface-variant hover:text-primary"
+              }`}
+            >
+              <Grid3X3 className="w-3.5 h-3.5" />
+              <span>Matrix Tech Dock</span>
+            </button>
           </motion.div>
         </div>
 
-        {/* Interactive Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2.5 mb-14 pb-4 border-b border-white/[0.06]">
+        {/* Category Filters Bar */}
+        <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-white/[0.06]">
           {skillCategoriesList.map((cat) => {
             const isActive = activeCategory === cat.id;
 
@@ -201,9 +240,9 @@ export function TechStack() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-md font-mono text-[12px] uppercase tracking-wider transition-all duration-300 ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-[11px] sm:text-[12px] uppercase tracking-wider transition-all duration-300 ${
                   isActive
-                    ? "bg-primary text-on-primary font-bold shadow-[0_0_20px_rgba(255,255,255,0.18)] translate-y-[-1px]"
+                    ? "bg-white/[0.12] text-primary font-bold border border-cyan-400/50 shadow-[0_0_15px_rgba(6,182,212,0.2)]"
                     : "text-on-surface-variant hover:text-primary hover:bg-white/[0.05] border border-white/[0.04]"
                 }`}
               >
@@ -211,7 +250,7 @@ export function TechStack() {
                 <span
                   className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
                     isActive
-                      ? "bg-black/25 text-black"
+                      ? "bg-cyan-500 text-black"
                       : "bg-surface-container-high text-on-surface-variant/80"
                   }`}
                 >
@@ -222,94 +261,118 @@ export function TechStack() {
           })}
         </div>
 
-        {/* Bento Grid: Clean Modern Interactive Tech Tiles */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-20"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredSkills.map((skill, index) => {
-              const isHovered = hoveredSkillId === skill.id;
+        {/* View Mode 1: Interactive Anti-Gravity Physics Playground */}
+        {viewMode === "physics" && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="mb-20"
+          >
+            <SkillsSandbox
+              activeCategory={activeCategory}
+              onSelectSkill={(skill) => setInspectedSkill(skill)}
+            />
+          </motion.div>
+        )}
 
-              return (
-                <motion.div
-                  key={skill.id}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.4, delay: Math.min(index * 0.03, 0.3) }}
-                  onMouseEnter={() => setHoveredSkillId(skill.id)}
-                  onMouseLeave={() => setHoveredSkillId(null)}
-                  className="relative p-6 rounded-xl border border-white/[0.07] bg-surface-container-lowest/70 hover:bg-surface-container-low/80 backdrop-blur-md transition-all duration-300 flex flex-col justify-between group overflow-hidden hover:-translate-y-1.5 hover:shadow-[0_12px_35px_rgba(0,0,0,0.5)]"
-                >
-                  {/* Ambient Brand Color Radial Glow on Hover */}
-                  <div
-                    className="absolute -top-12 -right-12 w-36 h-36 rounded-full blur-[60px] opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none"
-                    style={{ backgroundColor: skill.brandColor }}
-                  />
+        {/* View Mode 2: Clean Matrix Tech Dock (Bento Grid) */}
+        {viewMode === "matrix" && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            layout
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-20"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredSkills.map((skill, index) => {
+                return (
+                  <motion.div
+                    key={skill.id}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: Math.min(index * 0.03, 0.3),
+                    }}
+                    className="relative p-6 rounded-xl border border-white/[0.07] bg-surface-container-lowest/70 hover:bg-surface-container-low/80 backdrop-blur-md transition-all duration-300 flex flex-col justify-between group overflow-hidden hover:-translate-y-1.5 hover:shadow-[0_12px_35px_rgba(0,0,0,0.5)]"
+                  >
+                    {/* Ambient Brand Color Radial Glow on Hover */}
+                    <div
+                      className="absolute -top-12 -right-12 w-36 h-36 rounded-full blur-[60px] opacity-0 group-hover:opacity-25 transition-opacity duration-500 pointer-events-none"
+                      style={{ backgroundColor: skill.brandColor }}
+                    />
 
-                  <div>
-                    {/* Header: Official Logo Tile + Level Badge */}
-                    <div className="flex items-start justify-between gap-4 mb-5">
-                      {/* Logo Frame */}
-                      <div className="w-12 h-12 rounded-lg bg-surface-container-high/60 border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner group-hover:border-white/20 group-hover:scale-105 transition-all duration-300">
-                        {renderSkillIcon(skill.iconType, "w-7 h-7")}
+                    <div>
+                      {/* Header: Official Vector Logo Tile + Level Badge */}
+                      <div className="flex items-start justify-between gap-4 mb-5">
+                        {/* Logo Frame */}
+                        <div
+                          className="w-14 h-14 rounded-xl bg-surface-container-high/60 border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner group-hover:border-white/20 group-hover:scale-105 transition-all duration-300"
+                          style={{
+                            boxShadow: `0 0 20px ${skill.brandColor}30`,
+                          }}
+                        >
+                          {renderSkillIcon(skill.iconType, "w-9 h-9")}
+                        </div>
+
+                        {/* Level Badge */}
+                        <span
+                          className={`font-mono text-[10px] px-2.5 py-0.5 rounded-full border font-medium ${getLevelBadgeClass(
+                            skill.level
+                          )}`}
+                        >
+                          {skill.level}
+                        </span>
                       </div>
 
-                      {/* Level Badge */}
-                      <span
-                        className={`font-mono text-[10px] px-2.5 py-0.5 rounded-full border font-medium ${getLevelBadgeClass(
-                          skill.level
-                        )}`}
-                      >
-                        {skill.level}
-                      </span>
-                    </div>
+                      {/* Title & Domain */}
+                      <div className="space-y-1 mb-3">
+                        <h3 className="font-display text-[22px] font-bold text-primary tracking-tight group-hover:text-cyan-400 transition-colors">
+                          {skill.name}
+                        </h3>
+                        <p className="font-mono text-[11px] text-on-surface-variant tracking-wider uppercase">
+                          {skill.experience}
+                        </p>
+                      </div>
 
-                    {/* Title & Domain */}
-                    <div className="space-y-1 mb-3">
-                      <h3 className="font-display text-[22px] font-bold text-primary tracking-tight group-hover:text-accent-blue transition-colors">
-                        {skill.name}
-                      </h3>
-                      <p className="font-mono text-[11px] text-on-surface-variant tracking-wider uppercase">
-                        {skill.experience}
+                      {/* Description */}
+                      <p className="font-body text-[13px] text-on-surface-variant/90 leading-relaxed mb-5">
+                        {skill.description}
                       </p>
                     </div>
 
-                    {/* Description */}
-                    <p className="font-body text-[13px] text-on-surface-variant/90 leading-relaxed mb-5">
-                      {skill.description}
-                    </p>
-                  </div>
+                    {/* Shipped In Real Projects */}
+                    <div className="pt-3 border-t border-white/[0.05] mt-auto">
+                      <div className="flex items-center gap-1.5 mb-2">
+                        <span className="font-mono text-[9px] text-on-surface-variant/60 uppercase tracking-widest font-semibold">
+                          Shipped In
+                        </span>
+                        <span className="w-1 h-1 rounded-full bg-cyan-400/80" />
+                      </div>
 
-                  {/* Shipped In Real Projects */}
-                  <div className="pt-3 border-t border-white/[0.05] mt-auto">
-                    <div className="flex items-center gap-1.5 mb-2">
-                      <span className="font-mono text-[9px] text-on-surface-variant/60 uppercase tracking-widest font-semibold">
-                        Shipped In
-                      </span>
-                      <span className="w-1 h-1 rounded-full bg-accent-blue/60" />
+                      <div className="flex flex-wrap gap-1.5">
+                        {skill.projects.map((proj) => (
+                          <a
+                            key={proj}
+                            href="#projects"
+                            className="font-mono text-[10px] px-2 py-0.5 rounded-sm bg-surface-container-high/90 text-on-surface/90 border border-white/[0.05] hover:border-cyan-400/50 hover:text-cyan-300 transition-colors flex items-center gap-1"
+                          >
+                            <span>{proj}</span>
+                            <ArrowUpRight className="w-2.5 h-2.5 opacity-50 group-hover:opacity-100" />
+                          </a>
+                        ))}
+                      </div>
                     </div>
-
-                    <div className="flex flex-wrap gap-1.5">
-                      {skill.projects.map((proj) => (
-                        <a
-                          key={proj}
-                          href="#projects"
-                          className="font-mono text-[10px] px-2 py-0.5 rounded-sm bg-surface-container-high/90 text-on-surface/90 border border-white/[0.05] hover:border-accent-blue/50 hover:text-accent-blue transition-colors flex items-center gap-1"
-                        >
-                          <span>{proj}</span>
-                          <ArrowUpRight className="w-2.5 h-2.5 opacity-50 group-hover:opacity-100" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </motion.div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </motion.div>
+        )}
 
         {/* Bottom Engineering Benchmark Metrics Deck */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-12 border-t border-white/[0.06]">
@@ -320,10 +383,10 @@ export function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-6 rounded-xl bg-surface-container-lowest/60 border border-white/[0.05] flex flex-col justify-between group hover:border-accent-blue/40 transition-all hover:-translate-y-1"
+              className="p-6 rounded-xl bg-surface-container-lowest/60 border border-white/[0.05] flex flex-col justify-between group hover:border-cyan-400/40 transition-all hover:-translate-y-1"
             >
               <div>
-                <div className="font-display text-[38px] md:text-[44px] font-black text-primary group-hover:text-accent-blue transition-colors tracking-tight">
+                <div className="font-display text-[38px] md:text-[44px] font-black text-primary group-hover:text-cyan-400 transition-colors tracking-tight">
                   {stat.metric}
                 </div>
                 <div className="font-mono text-[12px] text-primary uppercase tracking-widest font-semibold mt-1 mb-2">
