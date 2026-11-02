@@ -42,7 +42,7 @@ export const projects: Project[] = [
   // ==========================================
   {
     id: "hsm-grand-inn",
-    number: "01 / 13",
+    number: "01 / 16",
     title: "HSM Grand Inn",
     category: "Luxury Hospitality Website",
     type: "web",
@@ -68,8 +68,35 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "balaji-jewellers",
+    number: "02 / 16",
+    title: "Balaji Jewellers",
+    category: "Luxury Haute Joaillerie & 3D Exhibition",
+    type: "web",
+    description:
+      "An ultra-luxury digital atelier and interactive 3D jewellery showcase platform for Balaji Jewellers & Shyam Diamonds. Built with Next.js 16, React 19, Three.js WebGL canvas, and bespoke typography.",
+    technologies: ["Next.js", "React 19", "Three.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    image: "/images/projects/balaji-jewellers.png",
+    alt: "Balaji Jewellers luxury haute joaillerie 3D exhibition and certified diamond collection website.",
+    displayUrl: "balajijewellers.vercel.app",
+    live: "https://balajijewellers.vercel.app/",
+    github: "https://github.com/dilliprasadm/balaji-jewellers",
+    metrics: "Three.js 3D WebGL · Next.js 16",
+    highlights: [
+      "Interactive real-time 3D jewellery rendering canvas",
+      "Luxury burgundy & gold brand aesthetic with zero CLS",
+      "WhatsApp bespoke jewellery consultation integration",
+    ],
+    telemetry: {
+      rendering: "Next.js 16 + Three.js WebGL",
+      network: "Vercel Global Edge CDN",
+      lighthouse: "99 Performance · 100 SEO",
+      latency: "<100ms Edge TTFB",
+    },
+  },
+  {
     id: "manish-jewellers",
-    number: "02 / 13",
+    number: "03 / 16",
     title: "Manish Jewellers",
     category: "Luxury Jewellery Atelier",
     type: "web",
@@ -95,8 +122,62 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "5-acres",
+    number: "04 / 16",
+    title: "5 Acres",
+    category: "Pan-India Real Estate Discovery & Land Booking",
+    type: "web",
+    description:
+      "An enterprise real estate discovery and land booking platform engineered for seamless property acquisitions, plot layouts, township visualizers, and transparent investor workflows across India.",
+    technologies: ["Next.js", "React 19", "Three.js", "Zustand", "TanStack Query", "Tailwind CSS"],
+    image: "/images/projects/5-acres.png",
+    alt: "5 Acres real estate discovery and land booking platform showcasing plotted layouts and townships.",
+    displayUrl: "5acres.marumitra.com",
+    live: "https://github.com/marumitra-client-5acres/mm-5acres-web-app",
+    github: "https://github.com/marumitra-client-5acres/mm-5acres-web-app",
+    metrics: "Enterprise PropTech · Turbopack",
+    highlights: [
+      "Interactive plot layouts & township visualizer",
+      "TanStack Query with optimistic client caching",
+      "Multi-tier filter matrix for verified farm & residential lands",
+    ],
+    telemetry: {
+      rendering: "Next.js 16 Turbopack SSR",
+      network: "Firebase Global Edge Hosting",
+      lighthouse: "98 Performance · PWA Enabled",
+      latency: "<80ms Dynamic Query Cache",
+    },
+  },
+  {
+    id: "euphoria-cafe",
+    number: "05 / 16",
+    title: "Euphoria Café",
+    category: "Gourmet Dessert Atelier & Canvas Web Experience",
+    type: "web",
+    description:
+      "An immersive culinary web experience crafted for Euphoria Café & Dessert Atelier. Features fluid GSAP scroll-triggered animations, interactive digital dessert menu, and real-time ordering concierge.",
+    technologies: ["Next.js", "React", "GSAP", "Framer Motion", "Tailwind CSS", "TypeScript"],
+    image: "/images/projects/euphoria-cafe.png",
+    alt: "Euphoria Cafe gourmet dessert atelier website featuring waffles, desserts, and interactive ordering.",
+    displayUrl: "euphoria-cafe.vercel.app",
+    live: "https://euphoria-cafe.vercel.app/",
+    github: "https://github.com/dilliprasadm/euphoria-cafe",
+    metrics: "GSAP Smooth Scroll · 60fps Animations",
+    highlights: [
+      "GSAP ScrollTrigger fluid page choreography",
+      "Sensory visual menu with macro gastronomy photography",
+      "Zero-friction order concierge and table reservation",
+    ],
+    telemetry: {
+      rendering: "Next.js App Router + GSAP",
+      network: "Vercel Edge Platform",
+      lighthouse: "97 Performance · Fluid 60fps",
+      latency: "<90ms Edge Response",
+    },
+  },
+  {
     id: "npk-business-solutions",
-    number: "03 / 13",
+    number: "06 / 16",
     title: "NPK Business Solutions",
     category: "Enterprise IT & Digital Transformation",
     type: "web",
@@ -123,7 +204,7 @@ export const projects: Project[] = [
   },
   {
     id: "marumitra",
-    number: "04 / 13",
+    number: "07 / 16",
     title: "MARUMiTRA",
     category: "Software Consultancy & Agency",
     type: "web",
@@ -150,7 +231,7 @@ export const projects: Project[] = [
   },
   {
     id: "money-wise",
-    number: "05 / 13",
+    number: "08 / 16",
     title: "MoneyWise (MyMoney)",
     category: "Personal Finance & Expense Manager",
     type: "web",
@@ -181,7 +262,7 @@ export const projects: Project[] = [
   // ==========================================
   {
     id: "qelvani-jewellers",
-    number: "06 / 13",
+    number: "09 / 16",
     title: "Qelvani Jewellers",
     category: "Luxury Jewellery Mobile App",
     type: "mobile",
@@ -222,7 +303,7 @@ export const projects: Project[] = [
   },
   {
     id: "marble-center",
-    number: "07 / 13",
+    number: "10 / 16",
     title: "Marble Centre",
     category: "Enterprise ERP & Customer Management Mobile App",
     type: "mobile",
@@ -263,7 +344,7 @@ export const projects: Project[] = [
   },
   {
     id: "pranavic-clinic",
-    number: "08 / 13",
+    number: "11 / 16",
     title: "Pranavic Clinic",
     category: "Healthcare & Clinic Queue Mobile App",
     type: "mobile",
@@ -304,7 +385,7 @@ export const projects: Project[] = [
   },
   {
     id: "lumino-kids",
-    number: "09 / 13",
+    number: "12 / 16",
     title: "Lumino Kids",
     category: "Interactive Kids Learning & Game Mobile App",
     type: "mobile",
@@ -349,7 +430,7 @@ export const projects: Project[] = [
   // ==========================================
   {
     id: "git-commands",
-    number: "10 / 13",
+    number: "13 / 16",
     title: "Git Commands Reference Guide",
     category: "Developer Documentation & Open Source",
     type: "docs",
@@ -375,7 +456,7 @@ export const projects: Project[] = [
   },
   {
     id: "temperature-converter",
-    number: "11 / 13",
+    number: "14 / 16",
     title: "Temperature Converter Website",
     category: "Interactive Utility Tool",
     type: "docs",
@@ -400,7 +481,7 @@ export const projects: Project[] = [
   },
   {
     id: "basic-form",
-    number: "12 / 13",
+    number: "15 / 16",
     title: "Basic Registration Form",
     category: "Form Validation & UI Component",
     type: "docs",
@@ -425,7 +506,7 @@ export const projects: Project[] = [
   },
   {
     id: "diwali-shopping",
-    number: "13 / 13",
+    number: "16 / 16",
     title: "Diwali Shopping Page",
     category: "E-Commerce Festive Landing Page",
     type: "docs",
